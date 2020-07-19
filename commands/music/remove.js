@@ -36,7 +36,7 @@ module.exports = class RemoveSongCommand extends Command {
    // return message.say(`<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`);
     const embed = new MessageEmbed()
       .setColor(0x00AE86)
-    	.addField('Removed', `Removed song number ${songNumber} from queue`)
+    	.addField('Removed', `<:green_remove:734455370889691166> Removed song number ${songNumber} from queue`)
    // .addField('Removed', `<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`)
     	return message.embed(embed);
   }
