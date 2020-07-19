@@ -46,5 +46,3 @@ module.exports = class SkipToCommand extends Command {
     	return message.embed(embed);
   }
 };
-  }
-};
