@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class SkipAllCommand extends Command {
   constructor(client) {
@@ -25,6 +26,9 @@ module.exports = class SkipAllCommand extends Command {
       return message.say('There are no songs in queue');
     message.guild.musicData.songDispatcher.end();
     message.guild.musicData.queue.length = 0; // clear queue
-    return;
+      const embed = new MessageEmbed()
+      .setColor('0x00AE86')
+     	  	.addField('Jumping', `<:gray_skip:734454861659111494> all the song skiped!`)
+    	return message.embed(embed);
   }
 };
