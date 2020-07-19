@@ -133,6 +133,5 @@ client.on('error', err => client.logger.error(err));
 client.on('warn', warn => client.logger.warn(warn));
 
 client.on('commandError', (command, err) => client.logger.error(`[COMMAND:${command.name}]\n${err.stack}`));
-app.listen(4000);
 
 client.login(XIAO_TOKEN);
