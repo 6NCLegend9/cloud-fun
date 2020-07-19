@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class SkipToCommand extends Command {
   constructor(client) {
