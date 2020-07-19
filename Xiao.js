@@ -98,7 +98,7 @@ client.on("guildCreate", guild => {
         found = true;
         const embed = new MessageEmbed()
         .setColor(0x00AE86)
-        .setTitle("Thanks for inviting me to your server! \nPrefix: `-`")
+        .setTitle("Thanks for inviting me to your server! Prefix: `-`")
         .setDescription("**24/7 Hosting. \nCloud fun has over 200 commands to use and have fun with it the bot will keep get updates weakly. the bot has games meme, avatar, text editor and lots of other commands use the the main prefix is - but you can customize it anything you wish for. This includes Fun, Utilities, Memes, Games and much more. with over 200+ commands this wont disappoint you at all. The features are always being updated and with these 200+ commands this will make your server pop. Amazing bot to enjoy and have fun with your friends when you're bored \n if you have issue join the main server by useing the command `info` or `invite` if you want to report of a bug or something els use the command `report` it will send into the server.**)
     return message.embed(embed);
          }
