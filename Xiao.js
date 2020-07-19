@@ -105,8 +105,6 @@ client.on("guildCreate", guild => {
   })
 });
   
-	}
-};
 
 /*client.on('message', async msg => {
 	if (!msg.channel.topic || !msg.channel.topic.includes(':iphone: ')) return;
