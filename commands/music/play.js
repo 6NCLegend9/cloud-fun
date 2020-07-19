@@ -239,8 +239,8 @@ var discrim = message.author.discriminator;
             .addField('<a:musicrillrunning:715186304819789844>Now Playing:', embedURL(queue[0].title, queue[0].url), true)
             .addField('<a:musicrillrunning:715186304819789844>Duration:', queue[0].duration)
             .addField('Reputed By', message.author.username+ '#' +message.author.discriminator);
-            if (queue[1]) videoEmbed.addField('Up Coming:', embedURL(queue[1].title, queue[1].url), true);
-               if (queue[1]) videoEmbed.addField('Duration:', queue[1].duration);
+            if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
+               if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Duration:', queue[1].duration);
           //  if (queue[1]) videoEmbed.addField('<:YTMusic:715186433706426448>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
              //  if (queue[1]) videoEmbed.addField('<:YTMusic:715186433706426448>Duration:', queue[1].duration);
             message.say(videoEmbed);
