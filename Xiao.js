@@ -83,6 +83,31 @@ client.on('ready', () => {
 	}
 });
 
+const { MessageEmbed } = require('discord.js');
+
+client.on("guildCreate", guild => {
+  var found = false;
+  guild.channels.forEach(function(channel, id) {
+      // If a channel is already found, nothing more needs to be done
+      if(found == true || channel.type != "text") {
+        return;
+      }
+      // If the channel isn't found and the bot has permission to 
+      // send and read messages in the channel, send a welcome message there
+      if(guild.me.permissionsIn(channel).has("SEND_MESSAGES") && guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) {
+        found = true;
+        const embed = new MessageEmbed()
+        .setColor(0x00AE86)
+        .setTitle("Thanks for inviting me to your server! \nPrefix: `-`")
+        .setDescription("**24/7 Hosting. \nCloud fun has over 200 commands to use and have fun with it the bot will keep get updates weakly. the bot has games meme, avatar, text editor and lots of other commands use the the main prefix is - but you can customize it anything you wish for. This includes Fun, Utilities, Memes, Games and much more. with over 200+ commands this wont disappoint you at all. The features are always being updated and with these 200+ commands this will make your server pop. Amazing bot to enjoy and have fun with your friends when you're bored \n if you have issue join the main server by useing the command `info` or `invite` if you want to report of a bug or something els use the command `report` it will send into the server.**)
+    return message.embed(embed);
+         }
+  })
+});
+  
+	}
+};
+
 /*client.on('message', async msg => {
 	if (!msg.channel.topic || !msg.channel.topic.includes(':iphone: ')) return;
 	if (msg.author.bot || !msg.content) return;
