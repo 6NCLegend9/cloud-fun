@@ -27,7 +27,7 @@ module.exports = class SkipCommand extends Command {
     message.guild.musicData.songDispatcher.end();
     const embed = new MessageEmbed()
       .setColor('#404040')
-     	  	.addField('Skip', `<:green_skip:734454978005041162> Skiped!`)
+     	  	.addField('Skip', `<:green_skip:734454978005041162> Skipped!`)
    // .addField('Removed', `<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`)
     	return message.embed(embed);
   }
