@@ -72,7 +72,7 @@ module.exports = class TranslateCommand extends Command {
 
     function embedTranslation(text) {
       return new MessageEmbed()
-        .setColor('#BA55D3')
+        .setColor(0x00AE86)
         .setTitle('Yandex Translate')
         .setURL('http://translate.yandex.com/')
         .setDescription(text)
