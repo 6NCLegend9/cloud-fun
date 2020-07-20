@@ -30,7 +30,7 @@ module.exports = class InfoCommand extends Command {
       .addField('<a:Discord:689042469819908116> Home Server',	this.client.options.invite ? embedURL('Invite', invite) : 'None', true)
       .addField('<:Twitter:733812544426475570> Twitter', embedURL('Twitter', 'https://twitter.com/OfficialZeroNat?s=09'), true)
       .addField('<:Instagram:733812231795638352> Instagram', embedURL('Instagram', 'https://www.instagram.com/official_zero_nation/'), true)
-    	.addField('Invite', embedURL('Add Me', 'https://discord.com/api/oauth2/authorize?client_id=707654732432408648&permissions=204860864&scope=bot'), true)
+    	.addField('Invite', embedURL('Add Me', 'https://discord.com/api/oauth2/authorize?client_id=707654732432408648&permissions=775290177&scope=bo'), true)
       .addField('Memory Usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`, true)
 			.addField('Uptime', moment.duration(this.client.uptime).format('d:hh:mm:ss'), true)
 			.addField('Version', `v${version}`, true)
