@@ -53,11 +53,13 @@
 		"moment": "^2.25.3",
 		"moment-duration-format": "^2.3.2",
 		"moment-timezone": "^0.5.28",
+		  "node-fetch": "^2.6.0",
 		"node-superfetch": "^0.1.10",
 		"random-js": "^2.1.0",
     "random-puppy": "^1.1.0",
 		"rss-parser": "^3.8.0",
     "simple-youtube-api": "^5.2.1",
+		"iso-639-1": "^2.1.1",
 		"soap": "^0.31.0",
 		"winston": "^3.2.1",
     "ytdl-core": "^2.1.2"
