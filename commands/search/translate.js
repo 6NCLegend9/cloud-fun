@@ -9,7 +9,7 @@ module.exports = class TranslateCommand extends Command {
     super(client, {
       name: 'translate',
       memberName: 'translate',
-      group: 'other',
+      group: 'search',
       description:
         'Translate to any language using yandex translation service(only supported lanugages)',
       throttling: {
