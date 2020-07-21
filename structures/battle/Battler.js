@@ -7,8 +7,8 @@ module.exports = class Battler {
 		this.battle = battle;
 		this.user = user;
 		this.bot = user.bot;
-		this.hp = 400;
-		this.mp = 200;
+		this.hp = 500;
+		this.mp = 250;
 		this.guard = false;
 		this.usedFinal = false;
 	}
