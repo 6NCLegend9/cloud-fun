@@ -37,7 +37,7 @@ module.exports = class InfoCommand extends Command {
 			.addField('Node.js', process.version, true)
 			.addField('Discord.js', `v${djsVersion}`, true)
 			.addField('Commando', `v${commandoVersion}`, true)
-    	.addField("Developer's", `NC_Legend#2147, Bass Station#2498, Reverse#0001, HerobrinePE#2365, chrhol#5015`, true)
+    	.addField("Developer's", `NC_Legend#2147, Skies#2498, Reverse#0001, HerobrinePE#2365, chrhol#5015`, true)
      .setFooter('All the rights are belongs to Cloud Support©™️')
     .setTimestamp()
 		return msg.embed(embed);
