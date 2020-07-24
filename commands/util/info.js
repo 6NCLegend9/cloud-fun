@@ -25,6 +25,7 @@ module.exports = class InfoCommand extends Command {
 		const embed = new MessageEmbed()
 			.setColor(0x00AE86)
 			.addField("Server's", formatNumber(this.client.guilds.cache.size), true)
+		.addField("User's", formatNumber(this.client.users.cache.size), true)
 			.addField("Command's", formatNumber(this.client.registry.commands.size), true)
 			.addField("Shard's", formatNumber(this.client.options.shardCount), true)
       .addField('<a:Discord:689042469819908116> Home Server',	this.client.options.invite ? embedURL('Invite', invite) : 'None', true)
