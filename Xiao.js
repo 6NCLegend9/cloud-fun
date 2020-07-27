@@ -1,3 +1,17 @@
+require('dotenv').config();
+const { XIAO_TOKEN, OWNERS, XIAO_PREFIX, INVITE } = process.env;
+const path = require('path');
+const Client = require('./structures/Client');
+const client = new Client({
+	commandPrefix: XIAO_PREFIX,
+	owner: OWNERS.split(','),
+	invite: INVITE,
+	disableMentions: 'everyone',
+	disabledEvents: ['TYPING_START']
+});
+const { formatNumber } = require('./util/Util');
+
+
 const { Structures } = require('discord.js');
 
 Structures.extend('Guild', function(Guild) {
@@ -22,32 +36,6 @@ Structures.extend('Guild', function(Guild) {
   return MusicGuild;
 });
 
-client.on('voiceStateUpdate', async (___, newState) => {
-  if (
-    newState.member.user.bot &&
-    !newState.channelID &&
-    newState.guild.musicData.songDispatcher &&
-    newState.member.user.id == client.user.id
-  ) {
-    newState.guild.musicData.queue.length = 0;
-    newState.guild.musicData.songDispatcher.end();
-  }
-});
-
-
-
-require('dotenv').config();
-const { XIAO_TOKEN, OWNERS, XIAO_PREFIX, INVITE } = process.env;
-const path = require('path');
-const Client = require('./structures/Client');
-const client = new Client({
-	commandPrefix: XIAO_PREFIX,
-	owner: OWNERS.split(','),
-	invite: INVITE,
-	disableMentions: 'everyone',
-	disabledEvents: ['TYPING_START']
-});
-const { formatNumber } = require('./util/Util');
 
 client.registry
 	.registerDefaultTypes()
