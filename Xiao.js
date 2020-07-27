@@ -1,5 +1,4 @@
 const { Structures } = require('discord.js');
-const path = require('path');
 
 Structures.extend('Guild', function(Guild) {
   class MusicGuild extends Guild {
