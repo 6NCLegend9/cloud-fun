@@ -35,7 +35,6 @@ module.exports = class PlayCommand extends Command {
   async run(message, { query }) {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.say('Join a channel and try again');
-    }
 
     if (
       // if the user entered a youtube playlist url
