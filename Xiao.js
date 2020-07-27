@@ -23,13 +23,18 @@ Structures.extend('Guild', function(Guild) {
         isPlaying: false,
         nowPlaying: null,
         songDispatcher: null,
-        volume: 0.40,
+        volume: 1
+      };
+      this.triviaData = {
+        isTriviaRunning: false,
+        wasTriviaEndCalled: false,
+        triviaQueue: [],
+        triviaScore: new Map()
       };
     }
   }
   return MusicGuild;
 });
-
 
 
 client.registry
