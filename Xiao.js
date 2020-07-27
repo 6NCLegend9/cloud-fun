@@ -25,16 +25,11 @@ Structures.extend('Guild', function(Guild) {
         songDispatcher: null,
         volume: 0.40,
       };
-      this.triviaData = {
-        isTriviaRunning: false,
-        wasTriviaEndCalled: false,
-        triviaQueue: [],
-        triviaScore: new Map()
-      };
     }
   }
   return MusicGuild;
 });
+
 
 
 client.registry
