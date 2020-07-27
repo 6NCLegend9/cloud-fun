@@ -36,6 +36,10 @@ module.exports = class PlayCommand extends Command {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.say('Join a channel and try again');
 
+    if (message.guild.triviaData.isTriviaRunning == true) {
+      return message.say('Please try after the trivia has ended');
+    }
+
     if (
       // if the user entered a youtube playlist url
       query.match(
@@ -131,7 +135,7 @@ module.exports = class PlayCommand extends Command {
     }
     vidNameArr.push('exit');
     const embed = new MessageEmbed()
-      .setColor(0x00AE86)
+      .setColor('404040')
       .setTitle('Choose a song by commenting a number between 1 and 5')
       .addField('Song 1', vidNameArr[0])
       .addField('Song 2', vidNameArr[1])
@@ -229,16 +233,16 @@ module.exports = class PlayCommand extends Command {
 var discrim = message.author.discriminator;
             const videoEmbed = new MessageEmbed()
             .setThumbnail(queue[0].thumbnail)
-              .setColor(0x00AE86) 
+              .setColor('404040') 
             
-            //.setURL(queue[0].url)
-            .addField('<a:musicrillrunning:715186304819789844>Now Playing:', embedURL(queue[0].title, queue[0].url), true)
-            .addField('<a:musicrillrunning:715186304819789844>Duration:', queue[0].duration)
-            .addField('Reputed By', message.author.username+ '#' +message.author.discriminator);
-            if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
-               if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Duration:', queue[1].duration);
-          //  if (queue[1]) videoEmbed.addField('<:YTMusic:715186433706426448>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
-             //  if (queue[1]) videoEmbed.addField('<:YTMusic:715186433706426448>Duration:', queue[1].duration);
+            .setURL(queue[0].url)
+            .addField('<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
+            .addField('<a:timer:719805971689635902> Duration:', queue[0].duration)
+            .addField('Requested By', message.author.username+ '#' +message.author.discriminator);
+                if (queue[1]) videoEmbed.addField(':green_play:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
+               if (queue[1]) videoEmbed.addField(':green_play:Duration:', queue[1].duration);
+          //  if (queue[1]) videoEmbed.addField(':YTMusic:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
+             //  if (queue[1]) videoEmbed.addField(':YTMusic:Duration:', queue[1].duration);
             message.say(videoEmbed);
             message.guild.musicData.nowPlaying = queue[0];
             return queue.shift();
