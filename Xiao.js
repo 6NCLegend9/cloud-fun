@@ -1,4 +1,6 @@
 const { Structures } = require('discord.js');
+const path = require('path');
+
 Structures.extend('Guild', function(Guild) {
   class MusicGuild extends Guild {
     constructor(client, data) {
@@ -8,7 +10,7 @@ Structures.extend('Guild', function(Guild) {
         isPlaying: false,
         nowPlaying: null,
         songDispatcher: null,
-        volume: 0.50,
+        volume: 0.40,
       };
       this.triviaData = {
         isTriviaRunning: false,
@@ -20,6 +22,8 @@ Structures.extend('Guild', function(Guild) {
   }
   return MusicGuild;
 });
+
+
 
 
 require('dotenv').config();
