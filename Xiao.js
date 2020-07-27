@@ -1,17 +1,6 @@
 require('dotenv').config();
 const { XIAO_TOKEN, OWNERS, XIAO_PREFIX, INVITE } = process.env;
 const path = require('path');
-const Client = require('./structures/Client');
-const client = new Client({
-	commandPrefix: XIAO_PREFIX,
-	owner: OWNERS.split(','),
-	invite: INVITE,
-	disableMentions: 'everyone',
-	disabledEvents: ['TYPING_START']
-});
-const { formatNumber } = require('./util/Util');
-
-
 const { Structures } = require('discord.js');
 
 Structures.extend('Guild', function(Guild) {
@@ -36,6 +25,17 @@ Structures.extend('Guild', function(Guild) {
   return MusicGuild;
 });
 
+
+
+const Client = require('./structures/Client');
+const client = new Client({
+	commandPrefix: XIAO_PREFIX,
+	owner: OWNERS.split(','),
+	invite: INVITE,
+	disableMentions: 'everyone',
+	disabledEvents: ['TYPING_START']
+});
+const { formatNumber } = require('./util/Util');
 
 client.registry
 	.registerDefaultTypes()
