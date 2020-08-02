@@ -50,6 +50,7 @@
     
 		"gifencoder": "^2.0.1",
     "https" : "^1.0.0",
+		"malapi": "0.0.3",
 		"mathjs": "^7.0.0",
 		"moment": "^2.25.3",
 		"moment-duration-format": "^2.3.2",
