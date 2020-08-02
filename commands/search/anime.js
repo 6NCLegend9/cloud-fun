@@ -6,7 +6,7 @@ module.exports = class animeCommand extends Command {
 	constructor (client) {
 		super(client, {
 			'name': 'anime',
-			'group': 'other',
+			'group': 'search',
 			'aliases': ['ani', 'mal'],
 			'memberName': 'anime',
 			'description': 'Find anime on MyAnimeList',
