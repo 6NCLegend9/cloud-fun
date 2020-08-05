@@ -26,7 +26,7 @@ module.exports = class WaifuCommand extends Command {
 		const num = Math.floor(Math.random() * 100000);
 		const { text } = await request.get(`https://www.thiswaifudoesnotexist.net/snippet-${num}.txt`);
 		const embed = new MessageEmbed()
-    .setcolor(0x00AE86)
+    .setcolor('#00da3c')
 			.setDescription(shorten(text, 1000))
 			.setThumbnail(`https://www.thiswaifudoesnotexist.net/example-${num}.jpg`);
 		return msg.embed(embed);
