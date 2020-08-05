@@ -24,7 +24,7 @@ module.exports = class EmojiCommand extends Command {
 
 	run(msg, { emoji }) {
 		const embed = new MessageEmbed()
-			.setColor(0x00AE86)
+			.setColor('#00da3c')
 			.setThumbnail(emoji.url)
 			.addField('Name', emoji.name, true)
 			.addField('ID', emoji.id, true)
