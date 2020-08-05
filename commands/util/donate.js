@@ -27,7 +27,7 @@ module.exports = class DonateCommand extends Command {
 	run(msg) {
 
 		const embed = new MessageEmbed()
-			.setColor(0x00AE86)
+			.setColor('#00da3c')
 		.setTitle('donation')	
     .addField('Contribute to development!',	this.client.options.invite ? embedURL('donate', 'https://www.paypal.me/saradalmeida') : 'None', true)
 		return msg.embed(embed);
