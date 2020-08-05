@@ -69,16 +69,16 @@ module.exports = class LyricsCommand extends Command {
         return message.say('Lyrics are too long to be returned as an embed');
       if (lyrics.length <  2048) {
         const lyricsEmbed = new MessageEmbed()
-          .setColor(0x00AE86)
+          .setColor('#00da3c')
           .setDescription(lyrics.trim());
         return sentMessage.edit('', lyricsEmbed);
       } else {
         // lyrics.length > 2048
         const firstLyricsEmbed = new MessageEmbed()
-          .setColor(0x00AE86)
+          .setColor('#00da3c')
           .setDescription(lyrics.slice(0,  2048));
         const secondLyricsEmbed = new MessageEmbed()
-          .setColor(0x00AE86)
+          .setColor('#00da3c')
           .setDescription(lyrics.slice( 2048, lyrics.length));
         sentMessage.edit('', firstLyricsEmbed);
         message.channel.send(secondLyricsEmbed);
