@@ -135,7 +135,7 @@ module.exports = class PlayCommand extends Command {
     }
     vidNameArr.push('exit');
     const embed = new MessageEmbed()
-      .setColor(0x00AE86)
+      .setColor('#00da3c')
       .setTitle('Choose a song by commenting a number between 1 and 5')
       .addField('Song 1', vidNameArr[0])
       .addField('Song 2', vidNameArr[1])
@@ -233,7 +233,7 @@ module.exports = class PlayCommand extends Command {
 var discrim = message.author.discriminator;
             const videoEmbed = new MessageEmbed()
             .setThumbnail(queue[0].thumbnail)
-              .setColor(0x00AE86) 
+              .setColor('#00da3c') 
             
             .setURL(queue[0].url)
             .addField('<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
