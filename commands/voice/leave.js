@@ -41,7 +41,7 @@ module.exports = class LeaveCommand extends Command {
       message.guild.musicData.songDispatcher.end();
       message.guild.musicData.queue.length = 0;	
      const embed = new MessageEmbed()  
-   .setColor(0x00AE86)
+   .setColor('#00da3c')
     	.addField('Disconnected', `Left **${connection.channel.name}**...`)
     	return message.embed(embed);
 	}
