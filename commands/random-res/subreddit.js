@@ -26,7 +26,7 @@ module.exports = class SubredditCommand extends SubredditCommandBase {
 
 	generateText(post, subreddit, icon) {
 		const embed = new MessageEmbed()
-			.setColor(0xFF4500)
+			.setColor('#00da3c')
 			.setAuthor(`r/${subreddit}`, icon, `https://www.reddit.com/r/${subreddit}/`)
 			.setTitle(shorten(post.title, 256))
 			.setImage(post.post_hint === 'image' ? post.url : null)
