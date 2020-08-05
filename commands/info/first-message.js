@@ -28,7 +28,7 @@ module.exports = class FirstMessageCommand extends Command {
 		const messages = await channel.messages.fetch({ after: 1, limit: 1 });
 		const message = messages.first();
 		const embed = new MessageEmbed()
-			.setColor(message.member ? message.member.displayHexColor : 0x00AE86)
+			.setColor(message.member ? message.member.displayHexColor : 00da3c)
 			.setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true }))
 			.setAuthor(message.author.tag, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
 			.setDescription(message.content)
