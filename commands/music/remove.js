@@ -35,7 +35,7 @@ module.exports = class RemoveSongCommand extends Command {
     message.guild.musicData.queue.splice(songNumber - 1, 1);
    // return message.say(`<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`);
     const embed = new MessageEmbed()
-      .setColor(0x00AE86)
+      .setColor('#00da3c')
     	.addField('Removed', `<:green_remove:734455370889691166> Removed song number ${songNumber} from queue`)
    // .addField('Removed', `<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`)
     	return message.embed(embed);
