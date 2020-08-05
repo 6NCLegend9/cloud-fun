@@ -21,7 +21,7 @@ module.exports = class InviteCommand extends Command {
     
 	const invite = await this.client.generateInvite(permissions);
 		const embed = new MessageEmbed()
-			.setColor(0x00AE86)
+			.setColor('#00da3c')
 		.setTitle('Vote!')	
 			.addField('Vote', embedURL('Vote for me here', 'https://top.gg/bot/707654732432408648/vote'), true)
 		return msg.embed(embed);
