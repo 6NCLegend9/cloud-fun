@@ -40,7 +40,7 @@ module.exports = class SkipToCommand extends Command {
     message.guild.musicData.queue.splice(0, songNumber - 1);
     message.guild.musicData.songDispatcher.end();
        const embed = new MessageEmbed()
-      .setColor(''#00da3c'')
+      .setColor('#00da3c')
      	  	.addField('Jumping', `<:green_skip:734454978005041162> Jumping into song number ${songNumber}!`)
    // .addField('Removed', `<:trashcan:713747946608525383> Removed song number ${songNumber} from queue`)
     	return message.embed(embed);
