@@ -27,7 +27,7 @@ module.exports = class HelpCommand extends Command {
 		if (!command) {
 			const embed = new MessageEmbed()
 				.setTitle('Command List')
-				.setColor(0x00AE86);
+				.setColor('#00da3c');
 			let cmdCount = 0;
 			for (const group of this.client.registry.groups.values()) {
 				const owner = this.client.isOwner(msg.author);
