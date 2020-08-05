@@ -34,7 +34,7 @@ module.exports = class CountryCommand extends Command {
 			const { body } = await request.get(`https://restcountries.eu/rest/v2/name/${query}`);
 			const data = body[0];
 			const embed = new MessageEmbed()
-				.setColor(0x00AE86)
+				.setColor('#00da3c')
 				.setTitle(data.name)
 				.setThumbnail(`https://www.countryflags.io/${data.alpha2Code}/flat/64.png`)
 				.addField('Population', formatNumber(data.population), true)
