@@ -22,7 +22,7 @@ module.exports = class MessageCommand extends Command {
 
 	run(msg, { message }) {
 		const embed = new MessageEmbed()
-			.setColor(message.member ? message.member.displayHexColor : 0x00AE86)
+			.setColor(message.member ? message.member.displayHexColor : '#00da3c')
 			.setThumbnail(message.author.displayAvatarURL({ format: 'png', dynamic: true }))
 			.setAuthor(message.author.tag, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
 			.setDescription(message.content)
