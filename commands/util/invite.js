@@ -21,7 +21,7 @@ module.exports = class InviteCommand extends Command {
     
 	const invite = await this.client.generateInvite(permissions);
 		const embed = new MessageEmbed()
-			.setColor(0x00AE86)
+			.setColor('#00da3c')
 		.setTitle('Invitation!')	
     .addField('Join my home server for support and announcements',	this.client.options.invite ? embedURL('Invite', 'https://discord.gg/sy6Jrze') : 'None', true)
 			.addField('Invite me using this link', embedURL('Add Me', 'https://discord.com/api/oauth2/authorize?client_id=707654732432408648&permissions=204860864&scope=bot'), true)
