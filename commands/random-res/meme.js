@@ -38,7 +38,7 @@ module.exports = class MemeCommand extends Command {
                     .setFooter(`${randSubreddit}`)
                     .setDescription(`[MEME REVIEW](${url})`)
                     .setImage(url)
-                    .setColor(0x00AE86);
+                    .setColor('#00da3c');
                 return message.channel.send({ embed });
             })
     }
