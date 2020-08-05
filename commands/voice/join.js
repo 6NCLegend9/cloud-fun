@@ -26,7 +26,7 @@ module.exports = class JoinCommand extends Command {
 		await voiceChannel.join();
 	//	return message.reply(`Joined **${voiceChannel.name}**!`);
        const embed = new MessageEmbed()  
-   .setColor(0x00AE86)
+   .setColor('#00da3c')
     	.addField('Joined', `Joined **${voiceChannel.name}**!`)
     	return message.embed(embed);
 	}
