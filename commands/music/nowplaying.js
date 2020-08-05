@@ -34,7 +34,7 @@ var username = message.author.username;
 var discrim = message.author.discriminator;
     const videoEmbed = new MessageEmbed()
       .setThumbnail(video.thumbnail)
-      .setColor(0x00AE86)
+      .setColor('#00da3c')
       .setTitle(video.title)
     .setURL(video.url)
    .addField('Requested By', message.author.username+ '#' +message.author.discriminator)
