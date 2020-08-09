@@ -32,7 +32,7 @@ module.exports = class PlayCommand extends Command {
     });
   }
 
-  async run(message, { query }) {
+async run(message, { query }) {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel) return message.say('Join a channel and try again');
 
@@ -49,32 +49,37 @@ module.exports = class PlayCommand extends Command {
       const playlist = await youtube.getPlaylist(query).catch(function() {
         return message.say('Playlist is either private or it does not exist!');
       });
-      // remove the 10 if you removed the queue limit conditions below
+      // add 10 as an argument in getVideos() if you choose to limit the queue
       const videosObj = await playlist.getVideos(60).catch(function() {
         return message.say(
           'There was a problem getting one of the videos in the playlist!'
         );
       });
       for (let i = 0; i < videosObj.length; i++) {
-        const video = await videosObj[i].fetch();
-        // this can be uncommented if you choose to limit the queue
-         if (message.guild.musicData.queue.length < 100) {
-        //
-        message.guild.musicData.queue.push(
-          PlayCommand.constructSongObj(video, voiceChannel)
-        );
-         } else {
-           return message.say(
-             `I can't play the full playlist because there will be more than 100 songs in queue`
-           );
-         }
+        if (videosObj[i].raw.status.privacyStatus == 'private') {
+          continue;
+        } else {
+          try {
+            const video = await videosObj[i].fetch();
+            // this can be uncommented if you choose to limit the queue
+             if (message.guild.musicData.queue.length < 250) { 
+            message.guild.musicData.queue.push(
+              PlayCommand.constructSongObj(video, voiceChannel)
+            );
+             } else {
+              return message.say(`I can't play the full playlist because there will be more than 250 songs in queue`);
+              }
+          } catch (err) {
+            console.error(err);
+          }
+        }
       }
       if (message.guild.musicData.isPlaying == false) {
         message.guild.musicData.isPlaying = true;
         return PlayCommand.playSong(message.guild.musicData.queue, message);
       } else if (message.guild.musicData.isPlaying == true) {
         return message.say(
-          `Playlist - <:CloudMusic:711677713374642287> ${playlist.title} <:CloudMusic:711677713374642287> has been added to queue`
+          `Playlist - <:purple_queue:734420897682686047>  ${playlist.title} <:purple_queue:734420897682686047> has been added to queue`
         );
       }
     }
@@ -99,11 +104,9 @@ module.exports = class PlayCommand extends Command {
       //   return message.say('I cannot play videos longer than 1 hour');
       // }
       // // can be uncommented if you want to limit the queue
-      if (message.guild.musicData.queue.length > 100) {
-        return message.say(
-          'There are too many songs in the queue already, skip or wait a bit'
-        );
-      }
+       if (message.guild.musicData.queue.length > 250) {
+      return message.say('There are too many songs in the queue already, skip or wait a bit');
+       }
       message.guild.musicData.queue.push(
         PlayCommand.constructSongObj(video, voiceChannel)
       );
@@ -119,23 +122,23 @@ module.exports = class PlayCommand extends Command {
     }
 
     // if user provided a song/video name
-    const videos = await youtube.searchVideos(query, 5).catch(function() {
-      return message.say(
+    const videos = await youtube.searchVideos(query, 5).catch(async function() {
+      await message.say(
         'There was a problem searching the video you requested :('
       );
     });
-    if (videos.length < 5) {
+    if (videos.length < 5 || !videos) {
       return message.say(
         `I had some trouble finding what you were looking for, please try again or be more specific`
       );
     }
-   const vidNameArr = [];
+    const vidNameArr = [];
     for (let i = 0; i < videos.length; i++) {
       vidNameArr.push(`${i + 1}: ${videos[i].title}`);
     }
     vidNameArr.push('exit');
     const embed = new MessageEmbed()
-      .setColor('#00da3c')
+      .setColor('#BA55D3')
       .setTitle('Choose a song by commenting a number between 1 and 5')
       .addField('Song 1', vidNameArr[0])
       .addField('Song 2', vidNameArr[1])
@@ -173,13 +176,11 @@ module.exports = class PlayCommand extends Command {
             //   return message.say('I cannot play videos longer than 1 hour');
             // }
 
-            ///can be uncommented if you don't want to limit the queue
-            if (message.guild.musicData.queue.length >100) {
-               songEmbed.delete();
-             return message.say(
-               'There are too many songs in the queue already, skip or wait a bit'
-              );
-            }
+            // // can be uncommented if you don't want to limit the queue
+          if (message.guild.musicData.queue.length > 250) {
+              songEmbed.delete();
+          return message.say('There are too many songs in the queue already, skip or wait a bit');
+        }
             message.guild.musicData.queue.push(
               PlayCommand.constructSongObj(video, voiceChannel)
             );
@@ -232,21 +233,22 @@ module.exports = class PlayCommand extends Command {
              var username = message.author.username;
 var discrim = message.author.discriminator;
             const videoEmbed = new MessageEmbed()
-            .setThumbnail(queue[0].thumbnail)
+              .setThumbnail(queue[0].thumbnail)
+                .setThumbnail(queue[0].thumbnail)
               .setColor('#00da3c') 
             
             .setURL(queue[0].url)
-            .addField('<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
-            .addField('<a:timer:719805971689635902> Duration:', queue[0].duration)
+            .addField('<<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
+            .addField('<<a:musicrillrunning:715186304819789844>: Duration:', queue[0].duration)
             .addField('Requested By', message.author.username+ '#' +message.author.discriminator);
-                if (queue[1]) videoEmbed.addField(':green_play:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
-               if (queue[1]) videoEmbed.addField(':green_play:Duration:', queue[1].duration);
+                if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
+               if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Duration:', queue[1].duration);
           //  if (queue[1]) videoEmbed.addField(':YTMusic:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
              //  if (queue[1]) videoEmbed.addField(':YTMusic:Duration:', queue[1].duration);
             message.say(videoEmbed);
             message.guild.musicData.nowPlaying = queue[0];
             return queue.shift();
-          }) 
+          })
           .on('finish', function() {
             if (queue.length >= 1) {
               return classThis.playSong(queue, message);
@@ -254,7 +256,9 @@ var discrim = message.author.discriminator;
               message.guild.musicData.isPlaying = false;
               message.guild.musicData.nowPlaying = null;
               message.guild.musicData.songDispatcher = null;
-              return message.guild.me.voice.channel.leave();
+              if (message.guild.me.voice.channel) {
+                return message.guild.me.voice.channel.leave();
+              }
             }
           })
           .on('error', function(e) {
@@ -284,7 +288,6 @@ var discrim = message.author.discriminator;
       voiceChannel
     };
   }
-
   // prettier-ignore
   static formatDuration(durationObj) {
     const duration = `${durationObj.hours ? (durationObj.hours + ':') : ''}${
