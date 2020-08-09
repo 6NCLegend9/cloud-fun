@@ -62,7 +62,7 @@ async run(message, { query }) {
           try {
             const video = await videosObj[i].fetch();
             // this can be uncommented if you choose to limit the queue
-             if (message.guild.musicData.queue.length < 250) { 
+             if (message.guild.musicData.queue.length < 100) { 
             message.guild.musicData.queue.push(
               PlayCommand.constructSongObj(video, voiceChannel)
             );
@@ -104,7 +104,7 @@ async run(message, { query }) {
       //   return message.say('I cannot play videos longer than 1 hour');
       // }
       // // can be uncommented if you want to limit the queue
-       if (message.guild.musicData.queue.length > 250) {
+       if (message.guild.musicData.queue.length > 100) {
       return message.say('There are too many songs in the queue already, skip or wait a bit');
        }
       message.guild.musicData.queue.push(
@@ -177,7 +177,7 @@ async run(message, { query }) {
             // }
 
             // // can be uncommented if you don't want to limit the queue
-          if (message.guild.musicData.queue.length > 250) {
+          if (message.guild.musicData.queue.length > 100) {
               songEmbed.delete();
           return message.say('There are too many songs in the queue already, skip or wait a bit');
         }
