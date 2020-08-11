@@ -37,7 +37,10 @@ var discrim = message.author.discriminator;
       .setColor('#00da3c')
       .setTitle(video.title)
     .setURL(video.url)
-   .addField('Requested By', message.author.username+ '#' +message.author.discriminator)
+     .setFooter(
+                `Requested by ${queue[0].memberDisplayName}`,
+                queue[0].memberAvatar
+              )
       .setDescription(description);
     message.channel.send(videoEmbed);
   }
