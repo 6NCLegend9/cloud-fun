@@ -244,15 +244,16 @@ module.exports = class PlayCommand extends Command {
             .setURL(queue[0].url)
             .addField('<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
             .addField('<a:musicrillrunning:715186304819789844> Duration:', queue[0].duration)
+            .setFooter(
+                `Requested by ${queue[0].memberDisplayName}`,
+                queue[0].memberAvatar
+              );
            // .addField('Requested By', message.author.username+ '#' +message.author.discriminator);
                 if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
                if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Duration:', queue[1].duration);
           //  if (queue[1]) videoEmbed.addField(':YTMusic:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
              //  if (queue[1]) videoEmbed.addField(':YTMusic:Duration:', queue[1].duration);
-              .setFooter(
-                `Requested by ${queue[0].memberDisplayName}`,
-                queue[0].memberAvatar
-              );
+             
             if (queue[1]) videoEmbed.addField('Next Song:', queue[1].title);
             message.say(videoEmbed);
             message.guild.musicData.nowPlaying = queue[0];
