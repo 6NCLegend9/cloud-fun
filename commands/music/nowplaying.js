@@ -38,9 +38,7 @@ var discrim = message.author.discriminator;
       .setTitle(video.title)
     .setURL(video.url)
      .setFooter(
-                `Requested by ${queue[0].memberDisplayName}`,
-                queue[0].memberAvatar
-              )
+                `Requested by ${video[0].memberDisplayName}`, video[0].memberAvatar )
       .setDescription(description);
     message.channel.send(videoEmbed);
   }
