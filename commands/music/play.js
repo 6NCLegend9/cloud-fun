@@ -72,7 +72,7 @@ module.exports = class PlayCommand extends Command {
             );
      } else {
               return message.say(`I can't play the full playlist because there will be more than 100 songs in queue`);
-            // }
+            }
           } catch (err) {
             console.error(err);
           }
