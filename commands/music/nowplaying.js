@@ -37,7 +37,6 @@ var discrim = message.author.discriminator;
       .setColor('#00da3c')
       .setTitle(video.title)
     .setURL(video.url)
-     .setFooter(`Requested by ${video[0].memberDisplayName}`, video[0].memberAvatar )
       .setDescription(description);
     message.channel.send(videoEmbed);
   }
