@@ -110,7 +110,7 @@ module.exports = class PlayCommand extends Command {
       // // can be uncommented if you want to limit the queue
       if (message.guild.musicData.queue.length > 100) {
       return message.say( 'There are too many songs in the queue already, skip or wait a bit' );
-      // }
+ }
       message.guild.musicData.queue.push(
         PlayCommand.constructSongObj(video, voiceChannel, message.member.user)
       );
@@ -184,7 +184,7 @@ module.exports = class PlayCommand extends Command {
  if (message.guild.musicData.queue.length > 100) {
   songEmbed.delete();
   return message.say('There are too many songs in the queue already, skip or wait a bit' );
-            // }
+      }
             message.guild.musicData.queue.push(
               PlayCommand.constructSongObj(
                 video,
