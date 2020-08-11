@@ -47,7 +47,7 @@
 		"discord.js": "^12.2.0",
 		"discord.js-commando": "github:discordjs/Commando",
 		"dotenv": "^8.2.0",
-    
+    "ffmpeg-static": "^2.7.0",
 		"gifencoder": "^2.0.1",
     "https" : "^1.0.0",
 		"malapi": "0.0.3",
