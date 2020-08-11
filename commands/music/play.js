@@ -230,17 +230,19 @@ async run(message, { query }) {
           .on('start', function() {
             message.guild.musicData.songDispatcher = dispatcher;
             dispatcher.setVolume(message.guild.musicData.volume);
-             var username = message.author.username;
-var discrim = message.author.discriminator;
+         //    var username = message.author.username;
+//var discrim = message.author.discriminator;
             const videoEmbed = new MessageEmbed()
               .setThumbnail(queue[0].thumbnail)
                 .setThumbnail(queue[0].thumbnail)
-              .setColor('#00da3c') 
-            
+              .setColor('#00da3c')     
             .setURL(queue[0].url)
             .addField('<a:musicrillrunning:715186304819789844> Now Playing:', embedURL(queue[0].title, queue[0].url), true)
             .addField('<a:musicrillrunning:715186304819789844> Duration:', queue[0].duration)
-            .addField('Requested By', message.author.username+ '#' +message.author.discriminator);
+           // .addField('Requested By', message.author.username+ '#' +message.author.discriminator);
+            .setFooter(
+                `Requested by ${queue[0].memberDisplayName}`,
+                queue[0].memberAvatar);
                 if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Up Coming:', embedURL(queue[1].title, queue[1].url), true);
                if (queue[1]) videoEmbed.addField('<:green_play:734419316648312913>Duration:', queue[1].duration);
           //  if (queue[1]) videoEmbed.addField(':YTMusic:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
@@ -279,13 +281,15 @@ var discrim = message.author.discriminator;
   static constructSongObj(video, voiceChannel) {
     let duration = this.formatDuration(video.duration);
     if (duration == '00:00') duration = 'Live Stream';
-    return {
+  return {
       url: `https://www.youtube.com/watch?v=${video.raw.id}`,
       title: video.title,
       rawDuration: video.duration,
       duration,
       thumbnail: video.thumbnails.high.url,
-      voiceChannel
+      voiceChannel,
+      memberDisplayName: user.username,
+      memberAvatar: user.avatarURL('webp', false, 16)
     };
   }
   // prettier-ignore
