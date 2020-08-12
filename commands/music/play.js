@@ -260,7 +260,7 @@ module.exports = class PlayCommand extends Command {
 //)
 
 //})
-             message.reply(videoEmbed)
+             message.say(videoEmbed)
             message.guild.musicData.nowPlaying = queue[0];
             return queue.shift();
           })
