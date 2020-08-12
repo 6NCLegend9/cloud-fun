@@ -67,14 +67,14 @@ var discrim = message.author.discriminator;
       }
     });
     const playBackBarLocation = Math.round(
-      (passedTimeInMS / totalDurationInMS) * 15
+      (passedTimeInMS / totalDurationInMS) * 10
     );
     let playBack = '';
       for (let i = 1; i < 25; i++) {
       if (playBackBarLocation == 0) {
         playBack = '<a:musicrillrunning:715186304819789844>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
         break;
-      } else if (playBackBarLocation == 15) {
+      } else if (playBackBarLocation == 10) {
         playBack = '▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<a:musicrillrunning:715186304819789844>';
         break;
       } else if (i == playBackBarLocation * 2) {
@@ -91,7 +91,7 @@ var discrim = message.author.discriminator;
       const duration = `${durationObj.hours ? (durationObj.hours + ':') : ''}${
         durationObj.minutes ? durationObj.minutes : '00'
       }:${
-        (durationObj.seconds < 15)
+        (durationObj.seconds < 10)
           ? ('0' + durationObj.seconds)
           : (durationObj.seconds
           ? durationObj.seconds
