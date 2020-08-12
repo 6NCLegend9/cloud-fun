@@ -39,7 +39,7 @@ module.exports = class BattleCommand extends Command {
 			while (!battle.winner) {
 				const choice = await battle.attacker.chooseAction(msg);
 				if (choice === 'attack') {
-					const damage = randomRange(battle.defender.guard ? 5 : 25, battle.defender.guard ? 10 : 50);
+					const damage = randomRange(battle.defender.guard ? 5 : 10, battle.defender.guard ? 10 : 15);
 					await msg.say(`${battle.attacker} deals **${damage}** damage!`);
 					battle.defender.dealDamage(damage);
 					battle.reset();
@@ -52,11 +52,11 @@ module.exports = class BattleCommand extends Command {
 					if (miss === 0 || miss === 3) {
 						await msg.say(`${battle.attacker}'s special attack missed!`);
 					} else if (miss === 1 || miss === 5) {
-						const damage = randomRange(battle.defender.guard ? 10 : 40, battle.defender.guard ? 20 : 80);
+						const damage = randomRange(battle.defender.guard ? 10 : 15, battle.defender.guard ? 15: 20);
 						await msg.say(`${battle.attacker}'s special FINAL FLASH, dealing **${damage}** damage!`);
 						battle.defender.dealDamage(damage);
 					} else if (miss === 2) {
-						const damage = randomRange(battle.defender.guard ? 20 : 80, battle.defender.guard ? 80 : 120);
+						const damage = randomRange(battle.defender.guard ? 10 : 20, battle.defender.guard ? 10 : 25);
 						await msg.say(`${battle.attacker}'s special BIG BANG, dealing **${damage}** damage!`);
 						battle.defender.dealDamage(damage);
 					}
@@ -70,8 +70,8 @@ module.exports = class BattleCommand extends Command {
 					battle.attacker.useMP(battle.attacker.mp);
 					battle.reset();
 				} else if (choice === 'final') {
-					await msg.say(`${battle.attacker} uses their final move **ZA WARDO**, dealing **75** damage!`);
-					battle.defender.dealDamage(75);
+					await msg.say(`${battle.attacker} uses their final move **ZA WARDO**, dealing **35** damage!`);
+					battle.defender.dealDamage(35);
 					battle.attacker.useMP(75);
 					battle.attacker.usedFinal = true;
 					battle.reset();
