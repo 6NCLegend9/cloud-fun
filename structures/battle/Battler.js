@@ -7,8 +7,8 @@ module.exports = class Battler {
 		this.battle = battle;
 		this.user = user;
 		this.bot = user.bot;
-		this.hp = 500;
-		this.mp = 250;
+		this.hp = 100;
+		this.mp = 175;
 		this.guard = false;
 		this.usedFinal = false;
 	}
@@ -18,7 +18,7 @@ module.exports = class Battler {
 			if (this.canFinal) return 'final';
 			const botChoices = ['attack', 'attack', 'defend'];
 			if (this.canSpecial) botChoices.push('special');
-			if (this.canHeal && this.hp < 150) botChoices.push('cure');
+			if (this.canHeal && this.hp < 35) botChoices.push('cure');
 			return botChoices[Math.floor(Math.random() * botChoices.length)];
 		}
 		let content = stripIndents`
@@ -38,7 +38,7 @@ module.exports = class Battler {
 					return false;
 				}
 				if (choice === 'final' && !this.canFinal) {
-					msg.say('You must have under 100 HP and over 50 MP. Final can only be used once!').catch(() => null);
+					msg.say('You must have under 35 HP and over 75 MP. Final can only be used once!').catch(() => null);
 					return false;
 				}
 				return true;
@@ -87,7 +87,7 @@ module.exports = class Battler {
 	}
 
 	get canFinal() {
-		return this.hp < 100 && this.mp >= 50 && !this.usedFinal;
+		return this.hp < 35 && this.mp >= 75 && !this.usedFinal;
 	}
 
 	toString() {
