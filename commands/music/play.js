@@ -254,12 +254,12 @@ module.exports = class PlayCommand extends Command {
           //  if (queue[1]) videoEmbed.addField(':YTMusic:Up Coming:', embedURL(queue[1].title, queue[1].url), true);
              //  if (queue[1]) videoEmbed.addField(':YTMusic:Duration:', queue[1].duration);
              
-            message.reply(videoEmbed).then(m=>{
-m.delete(
-queue[0].duration
-)
+  //          message.reply(videoEmbed).then(m=>{
+//m.delete(
+//queue[0].duration
+//)
 
-})
+//})
             message.guild.musicData.nowPlaying = queue[0];
             return queue.shift();
           })
